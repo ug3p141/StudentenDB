@@ -13,11 +13,16 @@ public class Student {
 		// TODO Auto-generated method stub
 
 	}
-	public Student(String firstName, String name){
-		this.numMatrikel = Student.nextFreeMatrikel;
-		Student.nextFreeMatrikel += 1;
-		this.firstName = firstName;
-		this.name = name;
+	public Student(String firstName, String name) throws Exception {
+		if (Student.nextFreeMatrikel > Student.maxMatrikel)  {
+			throw new Exception("Matrikel Nummern erschöpft");
+		}
+		else {
+			this.numMatrikel = Student.nextFreeMatrikel;
+			Student.nextFreeMatrikel += 1;
+			this.firstName = firstName;
+			this.name = name;
+		}
 	}
 	
 	public int getNumMatrikel() {
@@ -39,4 +44,7 @@ public class Student {
 		this.name = name;
 	}
 	
+	public void print() {
+		System.out.println(this.name + ", " + this.firstName + "(" + this.getNumMatrikel() + ")");
+	}
 }

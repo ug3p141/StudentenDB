@@ -4,8 +4,12 @@ public class TestAll {
 
 	public static void main(String[] args) {
 		for(int i = 0; i < 10; i++) {
-			Student myStudent = new Student("some" + i, "one" + i);
-			System.out.println("Matrikelnummer = : " + myStudent.getNumMatrikel());
+			try {
+				Student myStudent = new Student("some" + i, "one" + i);
+				myStudent.print();
+			} catch (Exception e){
+				System.out.println("Couldn't create new Student");
+			}
 		}
 
 	}
